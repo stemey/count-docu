@@ -100,7 +100,7 @@ function generate(options) {
     }
 
 
-    var doc = readChapter(options.source, 1, {targetPath: targetPath});
+    var doc = readChapter(options.source, 1, {targetPath: options.targetPath});
     doc.title = options.title;
     doc.description = options.description;
     doc.headerBgColor = options.headerBgColor;
@@ -110,6 +110,7 @@ function generate(options) {
     doc.links = collectLinks(doc);
     doc.output = {pdf: options.pdf, html: !options.pdf};
     doc.pdfDownload = options.pdfDownload;
+    doc.ctcOnCodeBlock = options.ctcOnCodeBlock;
 
     if (!options.pdf) {
         doc.toc = false;
